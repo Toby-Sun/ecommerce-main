@@ -8,7 +8,6 @@ import { useAuth } from '../../../_providers/Auth'
 import { Button } from '../../Button'
 import { CartLink } from '../../CartLink'
 import { CMSLink } from '../../Link'
-
 import classes from './index.module.scss'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
@@ -20,8 +19,9 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
       {navItems.map(({ link }, i) => {
         return <CMSLink key={i} {...link} appearance="none" />
       })}
-      <CartLink />
+      {user && <CartLink />}
       {user && <Link href="/account">Account</Link>}
+      {/*{user && } */}
       {!user && (
         <Button
           el="link"
@@ -31,7 +31,6 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
           onClick={() => (window.location.href = '/login')}
         />
       )}
-      {user && <CartLink />}
     </nav>
   )
 }
