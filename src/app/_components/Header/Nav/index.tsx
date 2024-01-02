@@ -8,6 +8,7 @@ import { useAuth } from '../../../_providers/Auth'
 import { Button } from '../../Button'
 import { CartLink } from '../../CartLink'
 import { CMSLink } from '../../Link'
+import RecommendationLink from '../../RecommendationLink'
 import classes from './index.module.scss'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
@@ -21,7 +22,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
       })}
       {user && <CartLink />}
       {user && <Link href="/account">Account</Link>}
-      {/*{user && } */}
+      {user && <RecommendationLink />}
       {!user && (
         <Button
           el="link"
